@@ -124,8 +124,8 @@ public class LetterBlock : MonoBehaviour
 
         // Set the target scale and position
         targetScale = originalScale * 1.2f;  // Smooth scale up
-        targetPosition = new Vector3(originalPosition.x, originalPosition.y+0.3f, 2f); // Smooth Z movement
-        targetRotation = Quaternion.Euler(0, -180f, 0);
+        targetPosition = new Vector3(-2, originalPosition.y+0.3f, originalPosition.z); // Smooth Z movement
+        targetRotation = Quaternion.Euler(0, -90f, 0);
         StartCoroutine(StartRotationAfterDelay());
     }
     private IEnumerator StartRotationAfterDelay()
@@ -239,7 +239,7 @@ public class LetterBlock : MonoBehaviour
     }
      public void ResetRotationOfBlocks()
     {
-        targetRotation = Quaternion.Euler(0, -87f, 0);
+        targetRotation = Quaternion.Euler(0, -9f, 0);
     }
 
 }

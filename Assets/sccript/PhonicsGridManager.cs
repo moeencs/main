@@ -5,7 +5,7 @@ public class PhonicsGridManager : MonoBehaviour
 {
     public GameObject letterBlockPrefab;
     public int gridSize = 3; // Can be increased per level
-    public float spacing = 0.5f;
+    public float spacing = 1f;
 
     public List<string> currentLetters; // Filled from word list or manually
 
@@ -21,7 +21,7 @@ public class PhonicsGridManager : MonoBehaviour
         {
             for (int z = gridSize-1; z >=0; z--)
             {
-                Vector3 pos = new Vector3(z*spacing, x*spacing, 0);
+                Vector3 pos = new Vector3(0, x * spacing, z * spacing);
                 GameObject block = Instantiate(letterBlockPrefab);
                 block.transform.parent = gridParent;
                 block.transform.localPosition = pos;

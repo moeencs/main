@@ -15,9 +15,9 @@ public class MainMenuHandler : MonoBehaviour
 
     private Dictionary<string, Vector3> characterArrowPositions = new Dictionary<string, Vector3>()
     {
-        { "Robot", new Vector3(-1.82f, 4.15f, 12.81667f) },
-        { "Dog", new Vector3(4.94f, 4.15f, 12.81667f) },
-        { "Cat", new Vector3(-9.05f, 4.15f, 12.81667f) }
+        { "Robot", new Vector3(-0.6f, 3.45f, -5.1f) },
+        { "Dog", new Vector3(-4.38f, 3.45f, -5.1f) },
+        { "Cat", new Vector3(3.59f, 3.45f, -5.1f) }
     };
 
     void Start()
