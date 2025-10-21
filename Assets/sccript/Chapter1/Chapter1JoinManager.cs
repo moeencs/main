@@ -17,7 +17,10 @@ public class Chapter1JoinManager : MonoBehaviour
 
     [SerializeField] TopPosition[] topPosition; //top position depends on the length of word 2, 3 or 4
 
+    [SerializeField] WheelArranger wheelmanager;
+
     int currentInd = 0;
+    [SerializeField] GameObject TempObj;
 
     public void StartNewLine()
     {
@@ -63,6 +66,7 @@ public class Chapter1JoinManager : MonoBehaviour
                 {
                     Debug.Log(currentLatter + " last");
                     go = Instantiate(newList[newList.Count - 1]);
+                    TempObj = go;
                     go.transform.parent = newList[newList.Count - 1].transform.parent;
 
                     Vector3 newPos = topPosition[eachJoining[currentInd].word.Length - 2].topPos[latterCount];
@@ -129,8 +133,8 @@ public class Chapter1JoinManager : MonoBehaviour
             waitCount++;
             yield return new WaitForSeconds(eachJoining[currentInd].waitTimers[waitCount]);
         }
-        
 
+        eachActor[eachJoining[currentInd].actorInd].actorDialogBox.SetActive(false);
         EndAnim();
     }
 
@@ -198,19 +202,31 @@ public class Chapter1JoinManager : MonoBehaviour
     public void EndAnim()
     {
         currentInd++;
+        
         if (currentInd < eachJoining.Count)
         {
             StartNewLine();
         }
         else {
             Debug.Log("game end");
+            foreach (Transform eachBlock in blocksParent)
+            {
+                eachBlock.gameObject.GetComponent<LetterBlock>().BringBackToBottom();
+                eachBlock.gameObject.GetComponent<LetterBlock>().enabled = false;
+               
+            }
+            if(TempObj!=null)
+                Destroy(TempObj);
+            currentBlocks.Clear();
             PlayAnimationLast();
+            wheelmanager.CreateWheelAndSpin();
                 }
 ;    }
 }
 [System.Serializable]
 public class Joining
 {
+    public string word;
     [Header("Dialogue Settings")]
     [TextArea(3, 10)]
     public string typleLine;
@@ -219,7 +235,7 @@ public class Joining
     public int actorInd;
     public bool joiningNeeded;
     public bool isLastword = false;
-    public string word;
+    
     public float[] waitTimers;
 }
 
