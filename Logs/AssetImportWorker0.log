@@ -309,3 +309,35 @@ Memory consumption went from 138.3 MB to 131.4 MB.
 Total: 12.966000 ms (FindLiveObjects: 1.060900 ms CreateObjectMapping: 1.020800 ms MarkObjects: 5.909900 ms  DeleteObjects: 4.973300 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 256.479081 seconds.
+  path: Assets/Scenes/Maps/Chapter1.unity
+  artifactKey: Guid(4cf5a8a41266c467aa83a8ff5baf0c80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/Chapter1.unity using Guid(4cf5a8a41266c467aa83a8ff5baf0c80) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dafc7a1d813de764152802bdfeea8721') in 0.0067404 seconds
+Number of updated asset objects reloaded before import = 13Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.865158 seconds.
+  path: Assets/Scenes/Maps/LoginScene.unity
+  artifactKey: Guid(9bddc80cfdcfc4c7d95b760d3b9f7310) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/LoginScene.unity using Guid(9bddc80cfdcfc4c7d95b760d3b9f7310) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e0f5abf956200a0f2f5a4e14202d1b9') in 0.0009357 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 168.866928 seconds.
+  path: Assets/Scenes/Maps/MainMenuScene.unity
+  artifactKey: Guid(aef5dfbc316f047b1a6120a5b77a4200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/MainMenuScene.unity using Guid(aef5dfbc316f047b1a6120a5b77a4200) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30aea89c23e776bcb62b0f9904bd6715') in 0.0006807 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+===============================================================
+Received Import Request.
+  Time since last request: 3.865158 seconds.
+  path: Assets/Scenes/Maps/LoginScene.unity
+  artifactKey: Guid(9bddc80cfdcfc4c7d95b760d3b9f7310) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/LoginScene.unity using Guid(9bddc80cfdcfc4c7d95b760d3b9f7310) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e0f5abf956200a0f2f5a4e14202d1b9') in 0.0009357 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
