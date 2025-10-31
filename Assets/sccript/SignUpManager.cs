@@ -48,6 +48,9 @@ public class SignUpManager : MonoBehaviour
     public GameObject toastPanel;       // optional toast panel
     public TextMeshProUGUI toastText;   // text element inside toast panel
 
+    // Other fields
+    private DateInputMask _dateMask;
+
     // Storage keys for tokens
     private const string ACCESS_TOKEN_KEY = "auth_access_token";
     private const string ID_TOKEN_KEY = "auth_id_token";
@@ -65,6 +68,13 @@ public class SignUpManager : MonoBehaviour
 
         if (googleSignInButton != null)
             googleSignInButton.onClick.AddListener(OnGoogleSignInClicked);
+
+        if (verifyingPanel != null) verifyingPanel.SetActive(false);
+        if (toastPanel != null) toastPanel.SetActive(false);
+        
+        // Cache the date mask on the date input (if present)
+        if (dateInputField != null)
+        _dateMask = dateInputField.GetComponent<DateInputMask>();
 
         if (verifyingPanel != null) verifyingPanel.SetActive(false);
         if (toastPanel != null) toastPanel.SetActive(false);
@@ -156,7 +166,7 @@ public class SignUpManager : MonoBehaviour
                               $"&redirect_uri={Uri.EscapeDataString(redirectUri)}" +
                               $"&response_type=code" +
                               $"&client_id={Uri.EscapeDataString(clientId)}" +
-                              $"&scope={Uri.EscapeDataString(googleScope)}";
+                              $"&scope=openid+email+profile";
 
         Debug.Log("[SignUpManager] Opening Hosted UI: " + authorizeUrl);
 
@@ -249,37 +259,54 @@ public class SignUpManager : MonoBehaviour
     }
 
     #region Existing Signup flow (unchanged)
-    // Keep your existing OnSignUpClicked and SendSignUpRequest logic intact.
-    // I have left this as-is from your file (only trimmed for readability earlier).
-    // If you already have SendSignUpRequest implemented below, it will continue to work.
-    public void OnSignUpClicked()
+
+public void OnSignUpClicked()
 {
     Debug.Log("Sign Up button clicked. Starting validation...");
 
     string name = nameInputField.text;
     string email = emailInputField.text;
-    string date = dateInputField.text;
     string password = passwordInputField.text;
 
-    // --- 2. Basic Validation ---
-    if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(date) || string.IsNullOrEmpty(password))
+    // Use the mask to read/validate date; require valid MM/DD/YYYY
+    string date; // we will pass ISO (yyyy-MM-dd) to backend
+    if (_dateMask != null)
     {
-        // Show a message to the user!
+        if (!_dateMask.TryGetDate(out var dob))
+        {
+            ShowToast("Please enter a valid date (MM/DD/YYYY).", 3f);
+            return;
+        }
+        date = dob.ToString("yyyy-MM-dd"); // backend-friendly string
+    }
+    else
+    {
+        // Fallback (shouldn't happen if mask is attached)
+        var raw = dateInputField.text;
+        ShowToast("Date field not set up. Please try again.", 3f);
+        Debug.LogWarning($"[SignUp] Date mask missing. Raw date was: {raw}");
+        return;
+    }
+
+    // --- Basic Validation ---
+    if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+    {
         ShowToast("Please fill out all the fields.", 3f);
         return;
     }
 
-    if (!email.Contains("@")) // A more robust check is better, but for now this works
+    if (!email.Contains("@")) // keep your existing email check
     {
-        // Show a message to the user!
         ShowToast("Please enter a valid email address.", 3f);
         return;
     }
 
     Debug.Log("Validation Successful! Preparing to send to backend...");
 
+    // Pass ISO date to your request
     StartCoroutine(SendSignUpRequest(name, email, date, password));
 }
+
 
 private IEnumerator SendSignUpRequest(string name, string email, string date, string password)
 {
