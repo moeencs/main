@@ -7,6 +7,7 @@ public class Task1NameBirth : MonoBehaviour
 {
     [SerializeField]
     Chapter1Mannager chapter1Handler;
+    [SerializeField] SoundsManager SoundsManager;
     public GameObject TaskScreenMain;
     public GameObject nameBox; 
     public GameObject birthBox;
@@ -14,6 +15,7 @@ public class Task1NameBirth : MonoBehaviour
     public TMP_InputField nameInput;
     public TMP_InputField birtDateInput;
     public TMP_InputField birthYearInput;
+
 
     public void ShowTaskScreen()
     {
@@ -25,6 +27,7 @@ public class Task1NameBirth : MonoBehaviour
 
     public void NameDone()
     {
+        SoundsManager.ButtonClicked();
         if(nameInput.text!="")
         {
             nameBox.SetActive(false);

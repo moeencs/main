@@ -18,6 +18,7 @@ public class Chapter1JoinManager : MonoBehaviour
     [SerializeField] TopPosition[] topPosition; //top position depends on the length of word 2, 3 or 4
 
     [SerializeField] WheelArranger wheelmanager;
+    [SerializeField] SoundsManager soundsManager;
 
     int currentInd = 0;
     [SerializeField] GameObject TempObj;
@@ -118,6 +119,7 @@ public class Chapter1JoinManager : MonoBehaviour
 
             //join now words
             latterCount = -1;
+            soundsManager.JoinCube();
             foreach (GameObject blocks in currentBlocks)
             {
                 latterCount++;

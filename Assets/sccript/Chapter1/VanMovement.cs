@@ -12,13 +12,14 @@ public class VanMovement : MonoBehaviour
     private bool isMoving = false;
 
     [SerializeField] Animator vanAnimator;
-
+    [SerializeField] AudioSource soundSourceVan;
     
 
     public void StartVanMovement()
     {
         if (!isMoving)
         {
+            soundSourceVan.Play();
             StartCoroutine(MoveSequence());
             vanAnimator.SetTrigger("go");
         }
@@ -39,6 +40,7 @@ public class VanMovement : MonoBehaviour
 
         isMoving = false;
         VanMovementDone();
+        soundSourceVan.Stop();
     }
 
     private IEnumerator MoveForward(float distance)

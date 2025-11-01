@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     [Header("Camera Reference")]
     public Camera mainCamera; // Assign your Cinemachine TPS Camera here
     [SerializeField] Chapter1Mannager chap1Manager;
+    [SerializeField] SoundsManager soundsManager;
 
     void Start()
     {
@@ -59,6 +60,7 @@ public class InputManager : MonoBehaviour
                        
                         if (block.letter.ToLower() == currentLatter)
                         {
+                            soundsManager.CorrectTapped();
                             block.OnSelected();
                             selectedBlock = block.gameObject.GetComponent<Transform>();
                             targetPosition.gameObject.SetActive(true);
@@ -67,6 +69,7 @@ public class InputManager : MonoBehaviour
                         }
                         else
                         {
+                            soundsManager.WrongTapped();
                             block.Shake();
                         }
                     }
@@ -75,6 +78,7 @@ public class InputManager : MonoBehaviour
                 {
                     if(hit.collider.gameObject.tag=="target")
                     {
+                        soundsManager.CorrectTapped();
                         targetPosition = hit.collider.transform;
 
                        // selectedBlock.gameObject.GetComponent<LetterBlock>().ResetBlock();

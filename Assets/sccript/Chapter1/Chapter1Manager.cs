@@ -44,6 +44,7 @@ public class Chapter1Mannager : MonoBehaviour
     [SerializeField] Task1NameBirth taskNameBirth;
     [SerializeField] PhonicsGridManager gridManager;
     [SerializeField] CameraController cameraCcontroler;
+    [SerializeField] SoundsManager soundsManager;
 
 
 
@@ -109,6 +110,7 @@ public class Chapter1Mannager : MonoBehaviour
 
     void OnNextButtonPressed()
     {
+        soundsManager.ButtonClicked();
         if (isTyping)
         {
             // Skip typing and show full line instantly
@@ -256,6 +258,7 @@ public class Chapter1Mannager : MonoBehaviour
     
     public void OnClickGoToHomeButton()
     {
+        soundsManager.ButtonClicked();
         SceneManager.LoadSceneAsync(0);
     }
 
