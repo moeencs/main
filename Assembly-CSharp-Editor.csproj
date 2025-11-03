@@ -473,6 +473,9 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>D:\Code\Stephen\Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="Coffee.UIEffect.R">
+      <HintPath>D:\Code\Stephen\Library\PackageCache\com.coffee.ui-effect@890a47e64495\Runtime\Coffee.UIEffect.R.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>D:\Apps\Unity\6000.2.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
     </Reference>
@@ -875,6 +878,9 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>D:\Code\Stephen\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:\Code\Stephen\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>D:\Code\Stephen\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
@@ -940,6 +946,9 @@
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>D:\Code\Stephen\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.UIEffect">
+      <HintPath>D:\Code\Stephen\Library\ScriptAssemblies\Coffee.UIEffect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>D:\Code\Stephen\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
