@@ -155,12 +155,6 @@ public class SignUpManager : MonoBehaviour
     /// </summary>
     public void OnGoogleSignInClicked()
     {
-        // Android only handling region
-    #if UNITY_ANDROID
-        SignInStarter.StartSignIn();
-    #else
-
-        // iOS only handling region
         string authorizeUrl = $"{TrimTrailingSlash(cognitoHostedDomain)}/oauth2/authorize" +
                               $"?identity_provider=Google" +
                               $"&redirect_uri={Uri.EscapeDataString(redirectUri)}" +
@@ -175,7 +169,6 @@ public class SignUpManager : MonoBehaviour
 
         // The app will be re-opened via deep link; HandleDeepLink will receive the code.
         ShowToast("Opening Google sign-in...", 2f);
-    #endif
     }
 
     // Helper to trim trailing slash if accidentally added

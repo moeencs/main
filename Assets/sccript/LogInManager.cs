@@ -4,6 +4,7 @@ using TMPro;                // TextMeshPro
 using System.Collections;   // Coroutines
 using UnityEngine.Networking;
 using System.Text;
+using System;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -31,6 +32,11 @@ public class LogInManager : MonoBehaviour
     public string clientId = "2u6fqc2oh9fdp86smbnbuhcdg8";
     public string cognitoUrl = "https://cognito-idp.us-west-1.amazonaws.com/";
 
+    [Header("Hosted UI Settings")]
+    public string cognitoHostedDomain = "https://us-west-1dsoun0xib.auth.us-west-1.amazoncognito.com";
+    public string redirectUri = "com.junzitechsolutions.app://oauth";
+    public string googleScope = "openid+email+profile";
+
     // PlayerPrefs keys used to store tokens
     private const string ACCESS_TOKEN_KEY = "auth_access_token";
     private const string ID_TOKEN_KEY = "auth_id_token";
@@ -47,6 +53,23 @@ public class LogInManager : MonoBehaviour
 
         if (verifyingPanel != null) verifyingPanel.SetActive(false);
         if (toastPanel != null) toastPanel.SetActive(false);
+
+        // If app opened via deep link before Start, handle it
+        if (!string.IsNullOrEmpty(Application.absoluteURL))
+        {
+            Debug.Log("[LogInManager] App opened with URL: " + Application.absoluteURL);
+            HandleDeepLink(Application.absoluteURL);
+        }
+    }
+
+    void OnEnable()
+    {
+        Application.deepLinkActivated += HandleDeepLink;
+    }
+
+    void OnDisable()
+    {
+        Application.deepLinkActivated -= HandleDeepLink;
     }
 
     public void OnLogInClicked()
@@ -149,10 +172,7 @@ public class LogInManager : MonoBehaviour
 
                 ShowToast("Login successful!");
 
-                // TODO: Navigate to Main UI (enable panel or load scene)
-                // Example placeholder: call a navigation manager here or load a scene: SceneManager.LoadScene("MainScene");
                 SceneManager.LoadScene("Chapter1");
-                Debug.Log("TODO: Navigate to Main UI here.");
                 yield break;
             }
 
@@ -172,17 +192,28 @@ public class LogInManager : MonoBehaviour
         }
     }
 
-    // Social sign-in placeholders (unchanged behavior)
     public void OnForgotPasswordClicked()
     {
         Debug.Log("Forgot Password link clicked. Opening password reset screen/flow...");
-        // implement navigation to Forgot Password panel
+        // Implement navigation to Forgot Password panel
     }
 
     public void OnGoogleSignInClicked()
     {
-        Debug.Log("Google Sign-In button clicked. Calling backend/SDK...");
-        StartCoroutine(SendSocialSignInRequest("google"));
+        Debug.Log("Google Sign-In button clicked. Opening Hosted UI...");
+
+        // Always open Hosted UI in the system browser (iOS flow).
+        string authorizeUrl = $"{TrimTrailingSlash(cognitoHostedDomain)}/oauth2/authorize" +
+                              $"?identity_provider=Google" +
+                              $"&redirect_uri={Uri.EscapeDataString(redirectUri)}" +
+                              $"&response_type=code" +
+                              $"&client_id={Uri.EscapeDataString(clientId)}" +
+                              $"&scope=openid+email+profile" +
+                              $"&prompt=select_account";
+
+        Debug.Log("[LogInManager] Opening Hosted UI: " + authorizeUrl);
+        Application.OpenURL(authorizeUrl);
+        ShowToast("Opening Google sign-in...", 2f);
     }
 
     public void OnAppleSignInClicked()
@@ -206,7 +237,124 @@ public class LogInManager : MonoBehaviour
         Debug.Log($"'{provider}' SIGN-IN SUCCESSFUL! (Simulated)");
     }
 
-    #region Toast Helper
+    #region Deep link handling (for Hosted UI redirect)
+    /// <summary>
+    /// Handle incoming deep link URLs for login flow.
+    /// </summary>
+    private void HandleDeepLink(string urlOrLink)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(urlOrLink)) return;
+            Debug.Log("[LogInManager] Deep link received: " + urlOrLink);
+
+            System.Uri uri = new System.Uri(urlOrLink);
+            string query = uri.Query;
+            if (string.IsNullOrEmpty(query))
+            {
+                Debug.Log("[LogInManager] Deep link had no query parameters.");
+                return;
+            }
+
+            string code = null;
+            string[] parts = query.TrimStart('?').Split('&');
+            foreach (var p in parts)
+            {
+                var kv = p.Split('=');
+                if (kv.Length == 2 && kv[0] == "code")
+                {
+                    code = System.Uri.UnescapeDataString(kv[1]);
+                    break;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(code))
+            {
+                Debug.Log("[LogInManager] Authorization code received via deep link.");
+                StartCoroutine(ExchangeCodeForTokenCoroutine(code));
+            }
+            else
+            {
+                Debug.LogWarning("[LogInManager] No code parameter found in deep link.");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("[LogInManager] Error parsing deep link: " + ex);
+        }
+    }
+
+    /// <summary>
+    /// Exchanges authorization code for tokens.
+    /// </summary>
+    private IEnumerator ExchangeCodeForTokenCoroutine(string code)
+    {
+        if (verifyingPanel != null) verifyingPanel.SetActive(true);
+
+        string tokenEndpoint = $"{TrimTrailingSlash(cognitoHostedDomain)}/oauth2/token";
+
+        string form = $"grant_type=authorization_code&client_id={System.Uri.EscapeDataString(clientId)}&code={System.Uri.EscapeDataString(code)}&redirect_uri={System.Uri.EscapeDataString(redirectUri)}";
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(form);
+
+        using (UnityWebRequest www = new UnityWebRequest(tokenEndpoint, "POST"))
+        {
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // No X-Amz-Target for token endpoint
+            yield return www.SendWebRequest();
+
+            if (verifyingPanel != null) verifyingPanel.SetActive(false);
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("[LogInManager] Token exchange network error: " + www.error + " | Resp: " + www.downloadHandler.text);
+                ShowToast("Network error during sign-in. Please try again.");
+                yield break;
+            }
+
+            string resp = www.downloadHandler.text;
+            Debug.Log("[LogInManager] Token endpoint response: " + resp);
+
+            string accessToken = ExtractNestedJsonValue(resp, "access_token", ""); // Try top-level extraction style
+            // However the response format may differ; fallback to ExtractJsonValue as SignUpManager uses
+            string aToken = ExtractJsonValue(resp, "access_token");
+            if (!string.IsNullOrEmpty(aToken)) accessToken = aToken;
+
+            string idToken = ExtractJsonValue(resp, "id_token");
+            string refreshToken = ExtractJsonValue(resp, "refresh_token");
+
+            if (!string.IsNullOrEmpty(accessToken) || !string.IsNullOrEmpty(idToken))
+            {
+                if (!string.IsNullOrEmpty(accessToken)) PlayerPrefs.SetString(ACCESS_TOKEN_KEY, accessToken);
+                if (!string.IsNullOrEmpty(idToken)) PlayerPrefs.SetString(ID_TOKEN_KEY, idToken);
+                if (!string.IsNullOrEmpty(refreshToken)) PlayerPrefs.SetString(REFRESH_TOKEN_KEY, refreshToken);
+                PlayerPrefs.Save();
+
+                Debug.Log("[LogInManager] Tokens stored from Hosted UI.");
+
+                ShowToast("Sign-in successful!", 2f);
+                SceneManager.LoadScene("Chapter1");
+                yield break;
+            }
+            else
+            {
+                string errorMsg = ExtractJsonValue(resp, "error_description");
+                if (string.IsNullOrEmpty(errorMsg))
+                    errorMsg = ExtractJsonValue(resp, "error");
+                if (string.IsNullOrEmpty(errorMsg))
+                    errorMsg = "Sign-in failed. Please try again.";
+
+                Debug.LogError("[LogInManager] Token exchange failed: " + errorMsg);
+                ShowToast(errorMsg);
+                yield break;
+            }
+        }
+    }
+    #endregion
+
+    #region Helpers (Toast & JSON, and small utility)
 
     private Coroutine toastCoroutine;
 
@@ -255,10 +403,6 @@ public class LogInManager : MonoBehaviour
 
         toastPanel.SetActive(false);
     }
-
-    #endregion
-
-    #region JSON Helpers
 
     // Extracts simple string value for top-level key like "token":"value"
     private string ExtractJsonValue(string json, string key)
@@ -314,6 +458,14 @@ public class LogInManager : MonoBehaviour
     {
         if (s == null) return "";
         return s.Replace("\\", "\\\\").Replace("\"", "\\\"");
+    }
+
+    // Helper to trim trailing slash if accidentally added
+    private string TrimTrailingSlash(string url)
+    {
+        if (string.IsNullOrEmpty(url)) return url;
+        if (url.EndsWith("/")) return url.Substring(0, url.Length - 1);
+        return url;
     }
 
     #endregion
