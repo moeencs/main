@@ -77,6 +77,8 @@ mono_crash.*
 *.unitypackage.meta
 *.app
 
+./Logs/
+
 # Crashlytics generated file
 crashlytics-build.properties
 
