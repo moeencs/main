@@ -13,7 +13,7 @@ public class SplashScreenManager : MonoBehaviour
     public float delayDuration = 3.0f;
 
     [Tooltip("The name of the scene to load after the delay. Make sure this is in your Build Settings!")]
-    public string sceneToLoad = "AuthScene";
+    public string sceneToLoad = "ParentDashboard";
 
 
     // This function is called as soon as the object is active
@@ -36,6 +36,12 @@ public class SplashScreenManager : MonoBehaviour
         // --- 2. Load the next scene ---
         // This line will execute after the delay
         Debug.Log($"Splash screen delay finished. Loading scene: {sceneToLoad}");
+
+        if (!PlayerPrefs.HasKey("UserInfo"))
+        {
+            sceneToLoad = "AuthScene";
+        }
+        
         SceneManager.LoadScene(sceneToLoad);
     }
 }

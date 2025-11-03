@@ -86,7 +86,6 @@ public class LogInManager : MonoBehaviour
     {
         // Show loader
         if (verifyingPanel != null) verifyingPanel.SetActive(true);
-
         
         string jsonPayload = "{\"AuthFlow\":\"USER_PASSWORD_AUTH\"," +
                              "\"ClientId\":\"" + EscapeJson(clientId) + "\"," +
@@ -138,11 +137,13 @@ public class LogInManager : MonoBehaviour
                 if (!string.IsNullOrEmpty(idToken))
                 {
                     PlayerPrefs.SetString(ID_TOKEN_KEY, idToken);
+                    PlayerPrefs.SetString("UserInfo", DecodeJwtPayload(idToken));
                 }
                 if (!string.IsNullOrEmpty(refreshToken))
                 {
                     PlayerPrefs.SetString(REFRESH_TOKEN_KEY, refreshToken);
                 }
+                
                 PlayerPrefs.Save();
 
                 Debug.Log("Login successful. Tokens stored in PlayerPrefs.");
@@ -171,6 +172,23 @@ public class LogInManager : MonoBehaviour
             ShowToast(errorMsg);
         }
     }
+    
+    private string DecodeJwtPayload(string token)
+    {
+        var parts = token.Split('.');
+        if (parts.Length < 2) return null;
+
+        string payload = parts[1];
+        int mod4 = payload.Length % 4;
+        if (mod4 > 0)
+        {
+            payload += new string('=', 4 - mod4);
+        }
+
+        var bytes = System.Convert.FromBase64String(payload);
+        return System.Text.Encoding.UTF8.GetString(bytes);
+    }
+
 
     // Social sign-in placeholders (unchanged behavior)
     public void OnForgotPasswordClicked()

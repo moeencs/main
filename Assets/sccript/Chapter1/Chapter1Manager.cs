@@ -1,4 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using sccript.Data;
+using sccript.Services;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -6,8 +10,6 @@ using UnityEngine.SceneManagement;
 
 public class Chapter1Mannager : MonoBehaviour
 {
-    
-
     [Header("UI References")]
     public TextMeshProUGUI dialogueText;
 
@@ -21,8 +23,6 @@ public class Chapter1Mannager : MonoBehaviour
 
     [SerializeField] AudioSource audioSource;
     
-    
-
     [Header("Dialogue Settings")]
     public Chat[] eachChat;
     public ActorDetail[] eachActor;
@@ -37,13 +37,10 @@ public class Chapter1Mannager : MonoBehaviour
     private Coroutine typingCoroutine;
     private Coroutine autoAdvanceCoroutine;
     private bool isTyping = false;
-
     
-
     [SerializeField] InputManager inputManager;
     [SerializeField] Task1NameBirth taskNameBirth;
-
-
+    
     private void Start()
     {
         nextButton.onClick.AddListener(OnNextButtonPressed);
@@ -136,8 +133,7 @@ public class Chapter1Mannager : MonoBehaviour
             ShowLine();
             TextMeshPro currentTextfield = eachActor[eachChat[chatInd].eachDialogue[currentLineIndex - 1].actorInd].dialogueTextField;
             GameObject currentDialogueBox = eachActor[eachChat[chatInd].eachDialogue[currentLineIndex - 1].actorInd].actorDialogBox;
-
-
+            
             currentTextfield.text = "";
             currentDialogueBox.SetActive(false);
         }
@@ -151,8 +147,7 @@ public class Chapter1Mannager : MonoBehaviour
     {
         TextMeshPro currentTextfield = eachActor[eachChat[chatInd].eachDialogue[currentLineIndex-1].actorInd].dialogueTextField;
         GameObject currentDialogueBox = eachActor[eachChat[chatInd].eachDialogue[currentLineIndex-1].actorInd].actorDialogBox;
-
-
+        
         currentTextfield.text = "";
         nextButton.gameObject.SetActive(false);
         currentDialogueBox.SetActive(false);
@@ -172,9 +167,9 @@ public class Chapter1Mannager : MonoBehaviour
             if (lattersTaskInd == 0 || lattersTaskInd == 1)
             {
                 inputManager.StartTask("a");
-                Debug.Log("test  1");
+                Debug.Log("test  1"); 
+                lattersTaskInd = 18;
             }
-
             else if (lattersTaskInd == 2 || lattersTaskInd == 3)
                 inputManager.StartTask("t");
 
@@ -199,10 +194,24 @@ public class Chapter1Mannager : MonoBehaviour
             else if (lattersTaskInd == 16 || lattersTaskInd == 17)
                 inputManager.StartTask("i");
 
-           else if (lattersTaskInd >= 18)
+            else if (lattersTaskInd >= 18)
             {
                 Debug.Log("task end");
                 FindObjectOfType<VanMovement>().StartVanMovement();
+
+                var userInfoString = PlayerPrefs.GetString("UserInfo");
+
+                Dictionary<string, string> userInfo = JsonConvert.DeserializeObject<Dictionary<string, string>>(userInfoString);
+                
+                var progress = new GameProgress
+                {
+                    LevelId = 0,
+                    UserId = userInfo["cognito:username"],
+                };
+                
+                StartCoroutine(ProgressService.SaveProgress(progress));
+                
+                SceneManager.LoadScene("ParentDashboard");
             }
 
         }
