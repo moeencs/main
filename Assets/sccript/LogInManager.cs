@@ -130,64 +130,54 @@ public class LogInManager : MonoBehaviour
 
             // send
             yield return www.SendWebRequest();
-
+            
             // hide loader and re-enable button
             if (verifyingPanel != null) verifyingPanel.SetActive(false);
             if (logInButton != null) logInButton.interactable = true;
-
-            if (www.result != UnityWebRequest.Result.Success)
+            
+            string resp = www.downloadHandler != null ? www.downloadHandler.text : "";
+            long status = www.responseCode;
+            
+            // If it's a real network failure, bail early
+            if (www.result == UnityWebRequest.Result.ConnectionError ||
+                www.result == UnityWebRequest.Result.DataProcessingError)
             {
-                Debug.LogError("Login network error: " + www.error + " | Resp: " + www.downloadHandler.text);
+                Debug.LogError($"Login network/data error ({www.result}): {www.error} | Resp: {resp}");
                 ShowToast("Network error. Please check your connection.");
                 yield break;
             }
-
-            string resp = www.downloadHandler.text;
-            Debug.Log("Login response: " + resp);
-
-            // Success (HTTP 200) => extract tokens
-            // Parse AuthenticationResult.AccessToken, IdToken, RefreshToken
-            string accessToken = ExtractNestedJsonValue(resp, "AuthenticationResult", "AccessToken");
-            string idToken = ExtractNestedJsonValue(resp, "AuthenticationResult", "IdToken");
+            
+            // From here on, we *always* try to parse the body (even on 4xx/5xx)
+            Debug.Log($"Login HTTP {status}. Body: {resp}");
+            
+            // Try to parse success tokens first (Cognito 200 w/ AuthenticationResult)
+            string accessToken  = ExtractNestedJsonValue(resp, "AuthenticationResult", "AccessToken");
+            string idToken      = ExtractNestedJsonValue(resp, "AuthenticationResult", "IdToken");
             string refreshToken = ExtractNestedJsonValue(resp, "AuthenticationResult", "RefreshToken");
-
+            
             if (!string.IsNullOrEmpty(accessToken) || !string.IsNullOrEmpty(idToken))
             {
-                // Store tokens (PlayerPrefs for now)
-                if (!string.IsNullOrEmpty(accessToken))
-                {
-                    PlayerPrefs.SetString(ACCESS_TOKEN_KEY, accessToken);
-                }
-                if (!string.IsNullOrEmpty(idToken))
-                {
-                    PlayerPrefs.SetString(ID_TOKEN_KEY, idToken);
-                }
-                if (!string.IsNullOrEmpty(refreshToken))
-                {
-                    PlayerPrefs.SetString(REFRESH_TOKEN_KEY, refreshToken);
-                }
+                if (!string.IsNullOrEmpty(accessToken))  PlayerPrefs.SetString(ACCESS_TOKEN_KEY, accessToken);
+                if (!string.IsNullOrEmpty(idToken))      PlayerPrefs.SetString(ID_TOKEN_KEY, idToken);
+                if (!string.IsNullOrEmpty(refreshToken)) PlayerPrefs.SetString(REFRESH_TOKEN_KEY, refreshToken);
                 PlayerPrefs.Save();
-
-                Debug.Log("Login successful. Tokens stored in PlayerPrefs.");
-
+            
+                Debug.Log("Login successful. Tokens stored.");
                 ShowToast("Login successful!");
-
                 SceneManager.LoadScene("Chapter1");
                 yield break;
             }
-
-            // If we reach here, treat as error. Extract error message if present.
-            string errorMsg = ExtractJsonValue(resp, "message");
-            if (string.IsNullOrEmpty(errorMsg))
-            {
-                // Some Cognito errors are under "__type"
-                errorMsg = ExtractJsonValue(resp, "__type");
-            }
-
-            if (string.IsNullOrEmpty(errorMsg))
-                errorMsg = "Login failed. Please try again.";
-
-            Debug.LogError("Login failed: " + errorMsg);
+            
+            // Not successful: extract a *useful* error message from the body
+            string errorMsg =
+                  ExtractJsonValue(resp, "message")            // common Cognito key
+               ?? ExtractJsonValue(resp, "Message")            // sometimes capitalized
+               ?? ExtractJsonValue(resp, "error_description")  // OAuth-style
+               ?? ExtractJsonValue(resp, "error")
+               ?? ExtractJsonValue(resp, "__type")             // e.g., NotAuthorizedException
+               ?? "Login failed. Please try again.";
+            
+            Debug.LogError($"Login failed (HTTP {status}): {errorMsg}");
             ShowToast(errorMsg);
         }
     }
@@ -356,53 +346,55 @@ public class LogInManager : MonoBehaviour
 
     #region Helpers (Toast & JSON, and small utility)
 
-    private Coroutine toastCoroutine;
-
-    private void ShowToast(string message, float duration = 2.5f)
-    {
-        if (toastPanel == null || toastText == null)
-        {
-            Debug.LogWarning("Toast UI not assigned. Message: " + message);
-            return;
-        }
-
-        if (toastCoroutine != null)
-            StopCoroutine(toastCoroutine);
-
-        toastCoroutine = StartCoroutine(ToastRoutine(message, duration));
-    }
-
-    private IEnumerator ToastRoutine(string message, float duration)
-    {
-        toastText.text = message;
-        toastPanel.SetActive(true);
-
-        CanvasGroup cg = toastPanel.GetComponent<CanvasGroup>();
-        if (cg == null)
-            cg = toastPanel.AddComponent<CanvasGroup>();
-
-        // Fade in
-        float t = 0f;
-        while (t < 0.3f)
-        {
-            t += Time.deltaTime;
-            cg.alpha = Mathf.Lerp(0, 1, t / 0.3f);
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(duration);
-
-        // Fade out
-        t = 0f;
-        while (t < 0.3f)
-        {
-            t += Time.deltaTime;
-            cg.alpha = Mathf.Lerp(1, 0, t / 0.3f);
-            yield return null;
-        }
-
-        toastPanel.SetActive(false);
-    }
+            private Coroutine toastCoroutine;
+            
+            private void ShowToast(string message, float duration = 2.5f)
+            {
+                if (toastPanel == null || toastText == null)
+                {
+                    Debug.LogWarning("[LogInManager] Toast UI not assigned. Message: " + message);
+                    return;
+                }
+            
+                // Ensure the toast is above peers within its Canvas (prevents it from sitting behind siblings)
+                toastPanel.transform.SetAsLastSibling();
+            
+                if (toastCoroutine != null)
+                    StopCoroutine(toastCoroutine);
+            
+                toastCoroutine = StartCoroutine(ToastRoutine(message, duration));
+            }
+            
+            private IEnumerator ToastRoutine(string message, float duration)
+            {
+                toastText.text = message;
+                toastPanel.SetActive(true);
+            
+                CanvasGroup cg = toastPanel.GetComponent<CanvasGroup>();
+                if (cg == null) cg = toastPanel.AddComponent<CanvasGroup>();
+            
+                // Fade in
+                float t = 0f;
+                while (t < 0.3f)
+                {
+                    t += Time.deltaTime;
+                    cg.alpha = Mathf.Lerp(0, 1, t / 0.3f);
+                    yield return null;
+                }
+            
+                yield return new WaitForSeconds(duration);
+            
+                // Fade out
+                t = 0f;
+                while (t < 0.3f)
+                {
+                    t += Time.deltaTime;
+                    cg.alpha = Mathf.Lerp(1, 0, t / 0.3f);
+                    yield return null;
+                }
+            
+                toastPanel.SetActive(false);
+            }
 
     // Extracts simple string value for top-level key like "token":"value"
     private string ExtractJsonValue(string json, string key)
