@@ -15,7 +15,7 @@ C:/Stephen
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52010
+63393
 Successfully changed project path to: C:/Stephen
 C:/Stephen
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,14 +49,14 @@ C:/Stephen
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [33012]  Target information:
+Player connection [9504]  Target information:
 
-Player connection [33012]  * "[IP] 192.168.2.4 [Port] 0 [Flags] 2 [Guid] 3189701158 [EditorId] 3189701158 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-5T06027) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [9504]  * "[IP] 192.168.2.4 [Port] 0 [Flags] 2 [Guid] 3590710426 [EditorId] 3590710426 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-5T06027) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [33012] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [33012] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [9504] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [9504] Host joined alternative multi-casting on [225.0.0.222:34997]...
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-Refreshing native plugins compatible for Editor in 8.87 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 8.94 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.49f1 (4dae1bb8668d)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/Resources/UnitySubsystems
@@ -72,47 +72,47 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56016
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56868
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006325 seconds.
-- Loaded All Assemblies, in  0.209 seconds
+Registered in 0.006309 seconds.
+- Loaded All Assemblies, in  0.219 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 206 ms
+Android Extension - Scanning For ADB Devices 215 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.394 seconds
-Domain Reload Profiling: 602ms
-	BeginReloadAssembly (63ms)
+- Finished resetting the current domain, in  0.390 seconds
+Domain Reload Profiling: 607ms
+	BeginReloadAssembly (65ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (0ms)
-	RebuildCommonClasses (19ms)
+	RebuildCommonClasses (18ms)
 	RebuildNativeTypeToScriptingClass (6ms)
 	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (83ms)
-		LoadAssemblies (61ms)
+	LoadAllAssembliesAndSetupDomain (91ms)
+		LoadAssemblies (64ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (81ms)
-			TypeCache.Refresh (81ms)
-				TypeCache.ScanAssembly (73ms)
+		AnalyzeDomain (89ms)
+			TypeCache.Refresh (88ms)
+				TypeCache.ScanAssembly (80ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (394ms)
+	FinalizeReload (390ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (368ms)
+		SetupLoadedEditorAssemblies (363ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (253ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (262ms)
+			SetLoadedEditorAssemblies (2ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (81ms)
-			ProcessInitializeOnLoadMethodAttributes (29ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (72ms)
+			ProcessInitializeOnLoadMethodAttributes (25ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -121,51 +121,51 @@ Domain Reload Profiling: 602ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.520 seconds
+- Loaded All Assemblies, in  0.504 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.539 seconds
-Domain Reload Profiling: 1057ms
-	BeginReloadAssembly (87ms)
+- Finished resetting the current domain, in  0.503 seconds
+Domain Reload Profiling: 1005ms
+	BeginReloadAssembly (94ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (16ms)
-	RebuildCommonClasses (19ms)
+		CreateAndSetChildDomain (17ms)
+	RebuildCommonClasses (23ms)
 	RebuildNativeTypeToScriptingClass (6ms)
-	initialDomainReloadingComplete (27ms)
-	LoadAllAssembliesAndSetupDomain (378ms)
-		LoadAssemblies (258ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (354ms)
+		LoadAssemblies (257ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (168ms)
-			TypeCache.Refresh (143ms)
-				TypeCache.ScanAssembly (131ms)
-			ScanForSourceGeneratedMonoScriptInfo (17ms)
+		AnalyzeDomain (149ms)
+			TypeCache.Refresh (126ms)
+				TypeCache.ScanAssembly (115ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
 			ResolveRequiredComponents (7ms)
-	FinalizeReload (539ms)
+	FinalizeReload (504ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (435ms)
+		SetupLoadedEditorAssemblies (407ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (15ms)
+			InitializePlatformSupportModulesInManaged (13ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (76ms)
-			ProcessInitializeOnLoadAttributes (294ms)
+			BeforeProcessingInitializeOnLoad (70ms)
+			ProcessInitializeOnLoadAttributes (272ms)
 			ProcessInitializeOnLoadMethodAttributes (42ms)
-			AfterProcessingInitializeOnLoad (5ms)
+			AfterProcessingInitializeOnLoad (7ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (4ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 4.57 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 4.35 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5744 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 41 unused Assets / (61.0 KB). Loaded Objects now: 6211.
-Memory consumption went from 221.8 MB to 221.7 MB.
-Total: 3.372200 ms (FindLiveObjects: 0.386800 ms CreateObjectMapping: 0.198800 ms MarkObjects: 2.684400 ms  DeleteObjects: 0.101300 ms)
+Unloading 41 unused Assets / (61.3 KB). Loaded Objects now: 6212.
+Memory consumption went from 222.3 MB to 222.3 MB.
+Total: 3.187400 ms (FindLiveObjects: 0.355000 ms CreateObjectMapping: 0.107600 ms MarkObjects: 2.626500 ms  DeleteObjects: 0.098000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -182,450 +182,83 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 692.673229 seconds.
-  path: Assets/Scenes/Maps/InnExterior.unity
-  artifactKey: Guid(1337ea0ef07127842a7aa475c689d219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Maps/InnExterior.unity using Guid(1337ea0ef07127842a7aa475c689d219) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'e9d795de8390313f5eb3ac1b30a8262a') in 0.002393 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 376.742938 seconds.
-  path: Assets/Scenes/Maps/Roadside Path 1.unity
-  artifactKey: Guid(c69ccd804a035d144a84493cd5f8a89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Maps/Roadside Path 1.unity using Guid(c69ccd804a035d144a84493cd5f8a89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'a1913646f7602d17109689e21bc4ecd8') in 0.000504 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 17.132767 seconds.
-  path: Assets/Scenes/Maps/Inn.unity
-  artifactKey: Guid(c69ccd804a035d144a84493cd5f8a89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Maps/Inn.unity using Guid(c69ccd804a035d144a84493cd5f8a89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'fc64604648f019f129857d8144a91406') in 0.000389 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 9.792284 seconds.
+  Time since last request: 11729.608058 seconds.
   path: Assets/Scenes/Maps/Inn Room.unity
   artifactKey: Guid(c69ccd804a035d144a84493cd5f8a89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Maps/Inn Room.unity using Guid(c69ccd804a035d144a84493cd5f8a89c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '120f631bdf5b221f7ed8ee8673772696') in 0.000423 seconds
+ -> (artifact id: '38fee2f08f3f6f50907ba4edc15d6c4a') in 0.005846 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 365.829178 seconds.
-  path: Assets/GeniusCrate_Games/Bedroom_Set
-  artifactKey: Guid(4a17d6b5b90a7be4a85ca9e2b217ac84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GeniusCrate_Games/Bedroom_Set using Guid(4a17d6b5b90a7be4a85ca9e2b217ac84) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'c57f95d234474929a4f71cbff7a7abb7') in 0.000510 seconds
+  Time since last request: 796.588901 seconds.
+  path: Assets/Env/PhantomCity/Materials/Color.mat
+  artifactKey: Guid(7f93a110cc286b2448248ce68fb0d75d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Env/PhantomCity/Materials/Color.mat using Guid(7f93a110cc286b2448248ce68fb0d75d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'dff3b9b04881117d88a59bb2e70240f4') in 0.198941 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 21
 ========================================================================
 Received Import Request.
-  Time since last request: 4.089733 seconds.
-  path: Assets/GeniusCrate_Games
-  artifactKey: Guid(f41a9f47f7ff5c848b01359753406aaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GeniusCrate_Games using Guid(f41a9f47f7ff5c848b01359753406aaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '9ea0e446c1fdf0feaf4fa7ec885db802') in 0.000428 seconds
+  Time since last request: 11.273120 seconds.
+  path: Assets/Env/PhantomCity/Skyboxes/Skybox_5 1.mat
+  artifactKey: Guid(72eac0c14e2bdc04fb167a6b9df73fa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Env/PhantomCity/Skyboxes/Skybox_5 1.mat using Guid(72eac0c14e2bdc04fb167a6b9df73fa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: '77afb0eb14e7479e5d2f1efdc02446c7') in 0.169530 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 7.726993 seconds.
-  path: Assets/Bedroom_Set/Model/Bedroom_Set/Bed-02.fbx
-  artifactKey: Guid(11bf8da6fb6b14a49887014c218fd62a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Model/Bedroom_Set/Bed-02.fbx using Guid(11bf8da6fb6b14a49887014c218fd62a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+  Time since last request: 8.861278 seconds.
+  path: Assets/Env/PhantomCity/Skyboxes/Nigth skybox.mat
+  artifactKey: Guid(72eac0c14e2bdc04fb167a6b9df73fa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Env/PhantomCity/Skyboxes/Nigth skybox.mat using Guid(72eac0c14e2bdc04fb167a6b9df73fa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'a4051b6980f24e6f0efb12c82f13fd70') in 0.145639 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 7.379891 seconds.
+  path: Assets/Scenes/Maps/Inn Room/ReflectionProbe-0.exr
+  artifactKey: Guid(ebd807956fd5d0c439e70cc3ca3ee89f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/Inn Room/ReflectionProbe-0.exr using Guid(ebd807956fd5d0c439e70cc3ca3ee89f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '3a8339a7e76e9a7779fd53bcf8b1b780') in 0.410844 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 33
-========================================================================
-Received Import Request.
-  Time since last request: 3.685070 seconds.
-  path: Assets/Bedroom_Set/Prefab/Bedroom_Set
-  artifactKey: Guid(53c155e1fcb771145a45d63732df49fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Prefab/Bedroom_Set using Guid(53c155e1fcb771145a45d63732df49fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '1c1d34ded45017d8ba1d8bd8fc45de40') in 0.000639 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.727761 seconds.
-  path: Assets/Bedroom_Set/Prefab/Bedroom_Set/Bed-02.prefab
-  artifactKey: Guid(895bae6fa6a8b8842a87d93029136aad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Prefab/Bedroom_Set/Bed-02.prefab using Guid(895bae6fa6a8b8842a87d93029136aad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '6312e3dff8a881566cfe3e60848d9f56') in 0.257207 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 0.715116 seconds.
-  path: Assets/Bedroom_Set/Prefab/Bedroom_Set/Bed_Light.prefab
-  artifactKey: Guid(c03cb52594bdc4d4bbcc2d5a2cb6bf64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Prefab/Bedroom_Set/Bed_Light.prefab using Guid(c03cb52594bdc4d4bbcc2d5a2cb6bf64) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'e9989b05f4650bb4abb4387bb50bad69') in 0.512235 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 28
-========================================================================
-Received Import Request.
-  Time since last request: 25.069940 seconds.
-  path: Assets/Bedroom_Set/Prefab/Bedroom_Set/Bed-03.prefab
-  artifactKey: Guid(b4d95c1cde6b3c04290f0a1bbcba7ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Prefab/Bedroom_Set/Bed-03.prefab using Guid(b4d95c1cde6b3c04290f0a1bbcba7ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '30c3dfe665b6c194f98806a253217ca6') in 0.881560 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 98
-========================================================================
-Received Import Request.
-  Time since last request: 6.184734 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Table_light_bed_BaseColor.png
-  artifactKey: Guid(8da5877f452807448a9464f0b71765ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Table_light_bed_BaseColor.png using Guid(8da5877f452807448a9464f0b71765ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'a3770d04f3c3713d83a088157a41bdc2') in 0.161842 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Bed_Light_Normal.png
-  artifactKey: Guid(4f9d08ac6403d4148a403e11987a57fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Bed_Light_Normal.png using Guid(4f9d08ac6403d4148a403e11987a57fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '2b619b43df5705c746e4ac97cb33a45b') in 0.037155 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Bed_Light_Metallic.png
-  artifactKey: Guid(e5384f8b53e14004283f6776bb8c65f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Bed_Light_Metallic.png using Guid(e5384f8b53e14004283f6776bb8c65f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '219cb372c753d588e8b475c1aec35272') in 0.027238 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Table_light_bed_Roughness.png
-  artifactKey: Guid(a2f8f86978ab79b4b9ae96aebe2d9b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Table_light_bed_Roughness.png using Guid(a2f8f86978ab79b4b9ae96aebe2d9b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '884a7619cfd7c13c6eb70d660f2e06de') in 0.029735 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Table_light_bed_AO.png
-  artifactKey: Guid(552595059cc9d3343af8ecd9d0314964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Table_light_bed_AO.png using Guid(552595059cc9d3343af8ecd9d0314964) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '1110a27487732f416879a5d14338634d') in 0.028866 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainG/Curtain_G_BaseColor.png
-  artifactKey: Guid(e6aed948a2083404f821c33cc48786de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainG/Curtain_G_BaseColor.png using Guid(e6aed948a2083404f821c33cc48786de) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '1d033f0370b14330daab99d71711968e') in 0.029060 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainG/Curtain_G_Roughness.png
-  artifactKey: Guid(383395e7674617f488d7bb2508504dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainG/Curtain_G_Roughness.png using Guid(383395e7674617f488d7bb2508504dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '2dc644766e923f8b7b1d0c5962403bfd') in 0.032433 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.041275 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainF/Curtain_F_BaseColor.png
-  artifactKey: Guid(2cf0da9231bdd594fb9c4fdda6517e90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainF/Curtain_F_BaseColor.png using Guid(2cf0da9231bdd594fb9c4fdda6517e90) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'e448911da2889466a3f99f4842e924df') in 0.034869 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainF/Curtain_F_Metallic.png
-  artifactKey: Guid(f47a8418767fdde419a0df4d99367aa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainF/Curtain_F_Metallic.png using Guid(f47a8418767fdde419a0df4d99367aa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'dfa30b3ba542842038084d426f83baef') in 0.027672 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.041383 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainE/Curtain_E_BaseColor.png
-  artifactKey: Guid(da6487d422e79c24faf2fc388fbad787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainE/Curtain_E_BaseColor.png using Guid(da6487d422e79c24faf2fc388fbad787) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '0f9ccd20b531b19d0a92903802b7fdba') in 0.025823 seconds
+ -> (artifact id: 'bd006559d45dda98c9a2ce5312973c45') in 0.059424 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
   Time since last request: 0.000017 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainE/Curtain_E_Roughness.png
-  artifactKey: Guid(8517e91d97523734cb0480eda17c5179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainE/Curtain_E_Roughness.png using Guid(8517e91d97523734cb0480eda17c5179) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+  path: Assets/Scenes/Maps/Overview/ReflectionProbe-0.exr
+  artifactKey: Guid(208141e528dc7a249ae1ef2cbc9c415b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/Overview/ReflectionProbe-0.exr using Guid(208141e528dc7a249ae1ef2cbc9c415b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '9564086f6f92a98b375ea4261ccd226d') in 0.028055 seconds
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'd9e7ad452dfaad55638fbdae62d6c315') in 0.018943 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 0.136764 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainD/Curtain_D_BaseColor.png
-  artifactKey: Guid(c16bd803a0153824db12a0a2c89c9c2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainD/Curtain_D_BaseColor.png using Guid(c16bd803a0153824db12a0a2c89c9c2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Scenes/Maps/PlayGround/ReflectionProbe-0.exr
+  artifactKey: Guid(844c0b8e150c945468861477a08cfe01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Maps/PlayGround/ReflectionProbe-0.exr using Guid(844c0b8e150c945468861477a08cfe01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '07cc85c8b25e9529ec492ef65165ab76') in 0.031020 seconds
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'f4d08b6b85bdc8cf47603cd2c7b903a5') in 0.007823 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainD/Curtain_D_Roughness.png
-  artifactKey: Guid(a51005a880d287548951059a1ff53651) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainD/Curtain_D_Roughness.png using Guid(a51005a880d287548951059a1ff53651) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+  Time since last request: 261.784131 seconds.
+  path: Assets/Env/PhantomCity/Materials/Characters/Dog.mat
+  artifactKey: Guid(2bb0b06e027ac0a46a37b3d7427b5e94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Env/PhantomCity/Materials/Characters/Dog.mat using Guid(2bb0b06e027ac0a46a37b3d7427b5e94) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '22498aa9817b7f11699203b74acc4dd7') in 0.028706 seconds
+ -> (artifact id: '2e6c0c3f2d039839283bc20d8f43c6b6') in 0.044103 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.047032 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainC/Curtain_C_BaseColor.png
-  artifactKey: Guid(97a0315da21459c41b2565c23b3a4958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainC/Curtain_C_BaseColor.png using Guid(97a0315da21459c41b2565c23b3a4958) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '2fbae3f4547cd491e96bdb6d59922786') in 0.030712 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainC/Curtain_C_Metallic.png
-  artifactKey: Guid(e63e605719f28544db75eb9d5dd31d28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainC/Curtain_C_Metallic.png using Guid(e63e605719f28544db75eb9d5dd31d28) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'f55d6e1fcd0a31e32353ae7e5be92aa3') in 0.024917 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.018216 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainB/Curtain_B_BaseColor.png
-  artifactKey: Guid(467b53a6f4fa101468d04600d4bdade1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainB/Curtain_B_BaseColor.png using Guid(467b53a6f4fa101468d04600d4bdade1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '279dd5366db05470789bb03ff067efda') in 0.031147 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainB/Curtain_B_Roughness.png
-  artifactKey: Guid(1e2a5b2434ea4cb4dbb13ba6661bbb3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainB/Curtain_B_Roughness.png using Guid(1e2a5b2434ea4cb4dbb13ba6661bbb3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '0ce7196f4d0619bb7d69d91e1fd8edaf') in 0.027153 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.037448 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainA/Curtain_A_BaseColor.png
-  artifactKey: Guid(fb8cb7bc758a0e848b5d6a439dc1d2cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainA/Curtain_A_BaseColor.png using Guid(fb8cb7bc758a0e848b5d6a439dc1d2cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'fc62d10f0e296712e3e39a547b34b1fa') in 0.029655 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainA/Curtain_A_Metallic.png
-  artifactKey: Guid(8084dc4a50b172b4c987f6c1e823ae27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Curtain/CurtainA/Curtain_A_Metallic.png using Guid(8084dc4a50b172b4c987f6c1e823ae27) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '63923e6971eb642852813e60fdae08b7') in 0.028727 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.040077 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/celing_fan/Ceiling_Fan_BaseColor.png
-  artifactKey: Guid(d31e21ccfa6b88446b0efbc646062e2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/celing_fan/Ceiling_Fan_BaseColor.png using Guid(d31e21ccfa6b88446b0efbc646062e2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '1556daeb48a52d314ed27c31780d074b') in 0.030092 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/celing_fan/Ceiling_Fan_Metallic.png
-  artifactKey: Guid(dedc08a0b7f08b24ab0da175cef83b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/celing_fan/Ceiling_Fan_Metallic.png using Guid(dedc08a0b7f08b24ab0da175cef83b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '9473d7f5f7479e7c8af53b15d17d5259') in 0.027251 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/celing_fan/Ceiling_Fan_AO.png
-  artifactKey: Guid(37b4d159531ee32469d16aacc7f2cac7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/celing_fan/Ceiling_Fan_AO.png using Guid(37b4d159531ee32469d16aacc7f2cac7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: 'ae66ea8e279686222c4f9f195072250d') in 0.029330 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.032960 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bedroom_Table_01/Bedroom_Table_01_BaseColor.png
-  artifactKey: Guid(93f75ad2b49808147b36451fad9594c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bedroom_Table_01/Bedroom_Table_01_BaseColor.png using Guid(93f75ad2b49808147b36451fad9594c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '93040c09ac5d4ef2e89d4a889c1bfb54') in 0.030101 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bedroom_Table_01/Bedroom_Table_01_Metallic.png
-  artifactKey: Guid(d7c162193c9ff7940985c0cefe7656b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bedroom_Table_01/Bedroom_Table_01_Metallic.png using Guid(d7c162193c9ff7940985c0cefe7656b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '84ce569ab510e4d4377822871ce58b69') in 0.028049 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.051792 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Bed_sheet_pillow_BaseColor.png
-  artifactKey: Guid(1992c805471cd1e449285ee4a3e708a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Bed_sheet_pillow_BaseColor.png using Guid(1992c805471cd1e449285ee4a3e708a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '8bc63f4ed65af77d4a792ad59e123a4e') in 0.032197 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Bed_sheet_pillow_AO.png
-  artifactKey: Guid(9b799858be769104f91f8cc96acebb5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_03/Bed_sheet_pillow_AO.png using Guid(9b799858be769104f91f8cc96acebb5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '2aa090e10cff1b1a09f4273a05798b84') in 0.033118 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.460943 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Table_light_bed_BaseColor.png
-  artifactKey: Guid(1bf4258c0ed8e644b9f96e302bcbf3f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Table_light_bed_BaseColor.png using Guid(1bf4258c0ed8e644b9f96e302bcbf3f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '371df1d53c7b8d8160e317f613de28fe') in 0.033159 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Table_light_bed_Roughness.png
-  artifactKey: Guid(9d7f7bc55eb5172479e5313c9e6d5411) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_Light/Table_light_bed_Roughness.png using Guid(9d7f7bc55eb5172479e5313c9e6d5411) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '701823b13326a54e7becbbe5f5adb295') in 0.026923 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.106368 seconds.
-  path: Assets/Bedroom_Set/Material/Bedroom_Set
-  artifactKey: Guid(6741e9bcce810b849944687448c3696d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Material/Bedroom_Set using Guid(6741e9bcce810b849944687448c3696d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '1b52a7ea98dcd6cdccccb7193513e9a0') in 0.000526 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.361447 seconds.
-  path: Assets/Bedroom_Set/Material
-  artifactKey: Guid(1ad5764840cc66a44808aa925a16b96e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Material using Guid(1ad5764840cc66a44808aa925a16b96e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '182c5c0eb8abfa4752885db9ef9f7b04') in 0.000439 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.654181 seconds.
-  path: Assets/Bedroom_Set/Model
-  artifactKey: Guid(2340c49b053b3ac4f814c20c40591b55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Model using Guid(2340c49b053b3ac4f814c20c40591b55) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '7e6682f2a1cdd33334eea6d63c248ad1') in 0.000528 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.291682 seconds.
-  path: Assets/Bedroom_Set/Model/Bedroom_Set/Bed-03.fbx
-  artifactKey: Guid(5c95d5c1d25b86b4289cb7a8f1bb977b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Model/Bedroom_Set/Bed-03.fbx using Guid(5c95d5c1d25b86b4289cb7a8f1bb977b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '5026b29515fada3360c46d22cc750ac2') in 0.817485 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 63
-========================================================================
-Received Import Request.
-  Time since last request: 22.622857 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_02/Bed_Normal.png
-  artifactKey: Guid(4c8ea8776e19a9f46a40160c4393baf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_02/Bed_Normal.png using Guid(4c8ea8776e19a9f46a40160c4393baf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '7a36c1136bec06e9070819e65d35a857') in 0.229683 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_02/Bed_Roughness.png
-  artifactKey: Guid(750967eb9148c5742b2625cf1c16f4cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Bedroom_Set/Texture Maps/Bedroom_Set/Bed_02/Bed_Roughness.png using Guid(750967eb9148c5742b2625cf1c16f4cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
- -> (artifact id: '87ba61931e5d7610f4dac839f189eb5a') in 0.030259 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
