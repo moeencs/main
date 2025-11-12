@@ -122,12 +122,24 @@ public class OtpManager : MonoBehaviour
             if (www.responseCode == 200)
             {
                 Debug.Log("OTP verification successful!");
-
                 ShowToast("Verification successful!");
-
-                // TODO: Navigate to login screen after small delay
                 yield return new WaitForSeconds(1.0f);
-                SceneManager.LoadScene("LoginScene");
+
+                // Auto-login using the password we cached at signup
+                string pw = OtpSessionData.Password;
+                if (string.IsNullOrEmpty(pw))
+                {
+                    // App may have been restarted; fall back gracefully
+                    ShowToast("Verified! Please log in to continue.");
+                    SceneManager.LoadScene("LoginScene");
+                    yield break;
+                }
+
+                 yield return StartCoroutine(LoginAfterConfirm(email, pw));
+
+                // Clear the cached password whether login succeeds or fails (safety)
+                 OtpSessionData.Password = null;
+                yield break;
             }
             else
             {
@@ -190,6 +202,63 @@ public class OtpManager : MonoBehaviour
         toastPanel.SetActive(false);
     }
 
+    private IEnumerator LoginAfterConfirm(string email, string password)
+    {
+        if (verifyingPanel != null) verifyingPanel.SetActive(true);
+    
+        string loginJson = "{\"AuthFlow\":\"USER_PASSWORD_AUTH\"," +
+                           "\"ClientId\":\"" + EscapeJson(clientId) + "\"," +
+                           "\"AuthParameters\":{" +
+                              "\"USERNAME\":\"" + EscapeJson(email) + "\"," +
+                              "\"PASSWORD\":\"" + EscapeJson(password) + "\"" +
+                           "}}";
+        byte[] body = Encoding.UTF8.GetBytes(loginJson);
+    
+        using (var www = new UnityWebRequest(cognitoUrl, "POST"))
+        {
+            www.uploadHandler   = new UploadHandlerRaw(body);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/x-amz-json-1.1");
+            www.SetRequestHeader("X-Amz-Target", "AWSCognitoIdentityProviderService.InitiateAuth");
+    
+            yield return www.SendWebRequest();
+    
+            if (verifyingPanel != null) verifyingPanel.SetActive(false);
+    
+            string resp = www.downloadHandler != null ? www.downloadHandler.text : "";
+            long status = www.responseCode;
+    
+            // Parse tokens like you do in LogInManager
+            string accessToken  = ExtractNestedJsonValue(resp, "AuthenticationResult", "AccessToken");
+            string idToken      = ExtractNestedJsonValue(resp, "AuthenticationResult", "IdToken");
+            string refreshToken = ExtractNestedJsonValue(resp, "AuthenticationResult", "RefreshToken");
+    
+            if (!string.IsNullOrEmpty(accessToken) || !string.IsNullOrEmpty(idToken))
+            {
+                if (!string.IsNullOrEmpty(accessToken))  PlayerPrefs.SetString("auth_access_token", accessToken);
+                if (!string.IsNullOrEmpty(idToken))      PlayerPrefs.SetString("auth_id_token", idToken);
+                if (!string.IsNullOrEmpty(refreshToken)) PlayerPrefs.SetString("auth_refresh_token", refreshToken);
+                PlayerPrefs.Save();
+    
+                Debug.Log("[OTP] Auto-login successful. Navigating to dashboard.");
+                SceneManager.LoadScene("LevelsDashboard");
+                yield break;
+            }
+    
+            // Friendly error handling (mirrors your style)
+            string error =
+                  ExtractJsonValue(resp, "message")
+               ?? ExtractJsonValue(resp, "Message")
+               ?? ExtractJsonValue(resp, "error_description")
+               ?? ExtractJsonValue(resp, "error")
+               ?? ExtractJsonValue(resp, "__type")
+               ?? $"Login failed after confirmation (HTTP {status}). Please try again.";
+            Debug.LogError("[OTP] Post-confirm login failed: " + error + " | Resp: " + resp);
+            ShowToast(error);
+        }
+    }
+
+
     #endregion
 
     #region JSON Helpers
@@ -213,6 +282,32 @@ public class OtpManager : MonoBehaviour
         int end = json.IndexOf('"', start + 1);
         if (end < 0) return null;
         return json.Substring(start + 1, end - start - 1);
+    }
+
+    private string ExtractNestedJsonValue(string json, string parentKey, string childKey)
+    {
+        if (string.IsNullOrEmpty(json) || string.IsNullOrEmpty(parentKey) || string.IsNullOrEmpty(childKey)) return null;
+        string parentPattern = $"\"{parentKey}\"";
+        int parentIdx = json.IndexOf(parentPattern, System.StringComparison.OrdinalIgnoreCase);
+        if (parentIdx < 0) return null;
+    
+        int braceIdx = json.IndexOf('{', parentIdx);
+        if (braceIdx < 0) return null;
+    
+        int depth = 0, endIdx = -1;
+        for (int i = braceIdx; i < json.Length; i++)
+        {
+            if (json[i] == '{') depth++;
+            else if (json[i] == '}')
+            {
+                depth--;
+                if (depth == 0) { endIdx = i; break; }
+            }
+        }
+        if (endIdx < 0) return null;
+    
+        string parentJson = json.Substring(braceIdx, endIdx - braceIdx + 1);
+        return ExtractJsonValue(parentJson, childKey);
     }
 
     #endregion

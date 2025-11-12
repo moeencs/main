@@ -232,7 +232,7 @@ public class Chapter1Mannager : MonoBehaviour
     
     public void OnClickGoToHomeButton()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene("LevelsDashboard");
     }
 
     

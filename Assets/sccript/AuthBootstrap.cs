@@ -19,7 +19,7 @@ public class AuthBootstrap : MonoBehaviour
 
     [Header("Scenes")]
     [Tooltip("Scene to load when user is authenticated")]
-    public string mainSceneName = "Chapter1";
+    public string mainSceneName = "ParentDashboard";
 
     [Tooltip("Scene to load when user must authenticate (login/signup)")]
     public string loginSceneName = "LoginScene";

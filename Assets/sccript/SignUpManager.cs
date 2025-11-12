@@ -230,7 +230,7 @@ public class SignUpManager : MonoBehaviour
 
                 ShowToast("Sign-in successful!", 2f);
 
-                SceneManager.LoadScene("Chapter1");
+                SceneManager.LoadScene("ParentDashboard");
                 Debug.Log("[SignUpManager] TODO: Navigate to Main UI here.");
 
                 yield break;
@@ -344,7 +344,8 @@ private IEnumerator SendSignUpRequest(string name, string email, string date, st
         {
             string maskedDestination = ExtractNestedJsonValue(resp, "CodeDeliveryDetails", "Destination");
             OtpSessionData.MaskedEmail = maskedDestination;
-            OtpSessionData.RealEmail = email; 
+            OtpSessionData.RealEmail = email;
+            OtpSessionData.Password = password; 
 
             Debug.Log("Sign up successful. Proceeding to OTP verification.");
             SceneManager.LoadScene("OTPScene");

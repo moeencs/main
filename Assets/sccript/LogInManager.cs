@@ -164,7 +164,7 @@ public class LogInManager : MonoBehaviour
             
                 Debug.Log("Login successful. Tokens stored.");
                 ShowToast("Login successful!");
-                SceneManager.LoadScene("Chapter1");
+                SceneManager.LoadScene("LevelsDashboard");
                 yield break;
             }
             
@@ -185,6 +185,7 @@ public class LogInManager : MonoBehaviour
     public void OnForgotPasswordClicked()
     {
         Debug.Log("Forgot Password link clicked. Opening password reset screen/flow...");
+        SceneManager.LoadScene("ForgetPasswordScene");
         // Implement navigation to Forgot Password panel
     }
 
@@ -325,7 +326,7 @@ public class LogInManager : MonoBehaviour
                 Debug.Log("[LogInManager] Tokens stored from Hosted UI.");
 
                 ShowToast("Sign-in successful!", 2f);
-                SceneManager.LoadScene("Chapter1");
+                SceneManager.LoadScene("LevelsDashboard");
                 yield break;
             }
             else
