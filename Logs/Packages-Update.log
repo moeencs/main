@@ -134,3 +134,35 @@ The following packages were updated:
   com.unity.cinemachine from version 2.9.7 to 2.10.1
   com.unity.inputsystem from version 1.5.1 to 1.11.0
   com.unity.render-pipelines.universal from version 14.0.7 to 14.0.11
+
+=== Thu Sep 11 00:42:42 2025
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.render-pipelines.universal from version 14.0.7 to 14.0.11
+
+=== Fri Sep 12 00:13:56 2025
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.render-pipelines.universal from version 14.0.7 to 14.0.11
+
+=== Fri Oct  3 21:50:32 2025
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.burst from version 1.8.18 to 1.8.21
+  com.unity.cinemachine from version 2.10.1 to 2.10.3
+  com.unity.ide.rider from version 3.0.31 to 3.0.36
+  com.unity.inputsystem from version 1.11.0 to 1.14.0
+  com.unity.render-pipelines.core from version 14.0.11 to 14.0.12
+  com.unity.render-pipelines.universal from version 14.0.11 to 14.0.12
+  com.unity.shadergraph from version 14.0.11 to 14.0.12
+  com.unity.splines from version 2.6.1 to 2.8.0
+  com.unity.timeline from version 1.7.6 to 1.7.7
