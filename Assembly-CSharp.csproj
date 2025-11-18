@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DA19E020-1C90-65DA-672E-246668F4FC20}</ProjectGuid>
+    <ProjectGuid>{47459692-3FDB-C9D8-DC5B-12C03C924DBB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,21 +61,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/sccript/Chapter1/Task1NameBirth.cs" />
+    <Compile Include="Assets/sccript/OtpManager.cs" />
+    <Compile Include="Assets/sccript/Data/GameProgress.cs" />
     <Compile Include="Assets/sccript/Chapter1/VanMovement.cs" />
     <Compile Include="Assets/sccript/Chapter1/CameraController.cs" />
     <Compile Include="Assets/sccript/Chapter1/InputManager.cs" />
     <Compile Include="Assets/sccript/MainMenuHandler.cs" />
+    <Compile Include="Assets/sccript/LogInManager.cs" />
     <Compile Include="Assets/sccript/Chapter1/Chapter1Manager.cs" />
     <Compile Include="Assets/sccript/Chapter1/Chapter1JoinManager.cs" />
+    <Compile Include="Assets/sccript/TextMeshProLinkHandler.cs" />
     <Compile Include="Assets/sccript/PhonicsInputManager.cs" />
     <Compile Include="Assets/sccript/FeedbackManager.cs" />
+    <Compile Include="Assets/sccript/OtpInputManager.cs" />
     <Compile Include="Assets/sccript/PhonicsLevelManager.cs" />
     <Compile Include="Assets/sccript/WordValidator.cs" />
+    <Compile Include="Assets/sccript/Services/ProgressService.cs" />
     <Compile Include="Assets/sccript/SoundsManager.cs" />
     <Compile Include="Assets/sccript/LetterBlock.cs" />
     <Compile Include="Assets/sccript/PhonicsGridManager.cs" />
     <Compile Include="Assets/sccript/GameManager.cs" />
+    <Compile Include="Assets/sccript/SceneNavigation.cs" />
     <Compile Include="Assets/sccript/Chapter1/WheelArranger.cs" />
+    <Compile Include="Assets/sccript/OtpSessionData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -428,6 +436,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library/PackageCache/jillejr.newtonsoft.json-for-unity@f2c6cb0981/Plugins/Newtonsoft.Json Editor/Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
@@ -1133,7 +1145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UltimateProceduralPrimitivesFREE.csproj">
-      <Project>{8D2FF963-746A-C4E4-30EA-44252E584377}</Project>
+      <Project>{83CF0ECC-FFF3-5F04-6F56-82B891A5EAC1}</Project>
       <Name>UltimateProceduralPrimitivesFREE</Name>
     </ProjectReference>
   </ItemGroup>
