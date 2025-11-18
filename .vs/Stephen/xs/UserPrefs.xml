@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{DA19E020-1C90-65DA-672E-246668F4FC20}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/sccript/Chapter1/Chapter1Manager.cs">
+    <Files>
+      <File FileName="Assets/sccript/Chapter1/Chapter1Manager.cs" Line="242" Column="14" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Stephen" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="sccript" expanded="True">
+                <Node name="Chapter1" expanded="True">
+                  <Node name="Chapter1Manager.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5e06a447-b0fa-4ea0-859c-3d663e35b60e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

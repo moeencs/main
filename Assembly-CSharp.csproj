@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{47459692-3FDB-C9D8-DC5B-12C03C924DBB}</ProjectGuid>
+    <ProjectGuid>{DA19E020-1C90-65DA-672E-246668F4FC20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -434,12 +434,12 @@
       <HintPath>Library/PackageCache/com.unity.testtools.codecoverage@1.2.6/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/jillejr.newtonsoft.json-for-unity@f2c6cb0981/Plugins/Newtonsoft.Json Editor/Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
@@ -1145,7 +1145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UltimateProceduralPrimitivesFREE.csproj">
-      <Project>{83CF0ECC-FFF3-5F04-6F56-82B891A5EAC1}</Project>
+      <Project>{8D2FF963-746A-C4E4-30EA-44252E584377}</Project>
       <Name>UltimateProceduralPrimitivesFREE</Name>
     </ProjectReference>
   </ItemGroup>

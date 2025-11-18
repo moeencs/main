@@ -176,9 +176,10 @@ public class Chapter1Mannager : MonoBehaviour
     {
         if(taskInd==0)
         {
-            taskNameBirth.ShowTaskScreen();
+            TaskDone();
+            //taskNameBirth.ShowTaskScreen();
         }
-        else if (taskInd==1)
+      else if (taskInd==1)
         {
             if (lattersTaskInd == 0 || lattersTaskInd == 1)
             {
